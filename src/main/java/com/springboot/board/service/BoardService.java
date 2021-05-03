@@ -16,14 +16,14 @@ public class BoardService {
 	private final BoardRepository boardRepository;
 	
 	public void updateBoard(BoardVO vo) {
-		BoardVO board = boardRepository.findById(vo.getSeq())
+		BoardVO board = boardRepository.findById(vo.getNo())
 				.orElseThrow(() -> new IllegalAccessError("해당 번호 게시글이 없습니다."));
 		board.setContent(vo.getContent());
 		boardRepository.save(board);
 	}
 
 	public void deleteBoard(BoardVO vo) {
-		boardRepository.deleteById(vo.getSeq());
+		boardRepository.deleteById(vo.getNo());
 	}	
 
 	public void insertBoard(BoardVO vo) {
@@ -31,7 +31,7 @@ public class BoardService {
 	}
 	
 	public BoardVO getBoard(BoardVO vo) {
-		BoardVO board = boardRepository.findById(vo.getSeq())
+		BoardVO board = boardRepository.findById(vo.getNo())
 				.orElseThrow(() -> new IllegalAccessError("해당 번호 게시글이 없습니다."));
 		return board;
 	}
