@@ -5,14 +5,19 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+body {
+background-color: gray;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 목록</title>
 </head>
 <body>
 	<center>
-		<h1>글 목록</h1>
+		<h1>공지사항</h1>
 		<h3>
-			${user.name}님! 환영합니다...<a href="logout.do">Log-out</a>
+			${user.name}님! 환영합니다...<a href="logout.do">Log-out</a>&nbsp;<a href="getBoardList.do">자유 게시판 보기</a>
 		</h3>
 		<table border="1" width="700">
 			<tr>
@@ -24,7 +29,7 @@
 			<c:forEach items="${noticeList}" var="notice">
 			<tr>
 				<td>${notice.no}</td>
-				<td align="left"><a href="getBoard.do?seq=${notice.seq}">${notice.title}</a></td>
+				<td align="left"><a href="getNotice.do?uni=${notice.uni}">${notice.title}</a></td>
 				<td>${notice.writer}</td>
 				<td>${notice.regDate}</td>
 			</tr>

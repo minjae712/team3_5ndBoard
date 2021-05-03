@@ -3,22 +3,31 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>새글등록</title>
+<style>
+body {
+background-color: gray;
+}
+</style>
+<title>공지등록</title>
 </head>
 <body>
 	<center>
-		<h1>글 등록</h1>
+		<h1>공지사항 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
 		<form action="insertNotice.do" method="post">
 			<table border="1" cellpadding="0" cellspacing="0">
+				
+				<tr>
+					<td align="left"><input type="hidden" name="no" value="공지" /></td>
+				</tr>
 				<tr>
 					<td bgcolor="orange" width="70">제목</td>
 					<td align="left"><input type="text" name="title" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" value="${user.name}" name="writer" size="10" /></td>
+					<td align="left"><input type="text" value="${user.name}" name="writer" size="10" readonly="readonly" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>

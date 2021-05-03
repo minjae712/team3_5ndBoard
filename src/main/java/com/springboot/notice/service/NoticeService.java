@@ -18,14 +18,14 @@ public class NoticeService {
 	private final NoticeRepository noticeRepository;
 	
 	public void updateNotice(NoticeVO vo) {
-		NoticeVO board = noticeRepository.findById(vo.getSeq())
+		NoticeVO notice = noticeRepository.findById(vo.getUni())
 				.orElseThrow(() -> new IllegalAccessError("해당 번호 게시글이 없습니다."));
-		board.setContent(vo.getContent());
-		noticeRepository.save(board);
+		notice.setContent(vo.getContent());
+		noticeRepository.save(notice);
 	}
 
 	public void deleteNotice(NoticeVO vo) {
-		noticeRepository.deleteById(vo.getSeq());
+		noticeRepository.deleteById(vo.getUni());
 	}	
 
 	public void insertNotice(NoticeVO vo) {
@@ -33,14 +33,14 @@ public class NoticeService {
 	}
 	
 	public NoticeVO getNotice(NoticeVO vo) {
-		NoticeVO board = noticeRepository.findById(vo.getSeq())
+		NoticeVO notice = noticeRepository.findById(vo.getUni())
 				.orElseThrow(() -> new IllegalAccessError("해당 번호 게시글이 없습니다."));
-		return board;
+		return notice;
 	}
 
 	public List<NoticeVO> getNoticeList(NoticeVO vo) {
-		List<NoticeVO> boardList = noticeRepository.findAll();
-		return boardList;
+		List<NoticeVO> noticeList = noticeRepository.findAll();
+		return noticeList;
 	}
 	
 }	

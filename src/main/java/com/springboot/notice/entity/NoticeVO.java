@@ -23,7 +23,7 @@ public class NoticeVO {
 
 	@Id
 	@GeneratedValue
-	private int seq;
+	private int uni;
 	private String no;
 	private String title;
 	private String writer;
@@ -36,8 +36,9 @@ public class NoticeVO {
 	public NoticeVO() {};
 	
 	@Builder
-	public NoticeVO(int seq, String title, String writer, String content, Date regDate, int cnt) {
-		this.seq = seq;
+	public NoticeVO(int uni,String no, String title, String writer, String content, Date regDate, int cnt) {
+		this.uni = uni;
+		this.no = no;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
