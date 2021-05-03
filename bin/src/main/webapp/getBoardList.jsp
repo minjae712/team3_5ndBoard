@@ -4,11 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<style>
-body {
-background-color: gray;
-}
-</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 목록</title>
@@ -17,7 +12,7 @@ background-color: gray;
 	<center>
 		<h1>글 목록</h1>
 		<h3>
-			${user.name}님! 환영합니다...<a href="logout.do">Log-out</a><a href="getNotice.jsp">공지사항 보기</a>
+			${user.name}님! 환영합니다...<a href="logout.do">Log-out</a>
 		</h3>
 		<form action="getBoardList.do" method="post">
 			<table width="600">
