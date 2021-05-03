@@ -43,7 +43,7 @@
 				<div><small>${comment.regDate}</small></div>
 				<c:if test="${comment.writer == user.name}">
 				<div align="right">
-				<a href="deleteComment.do?no=${comment.no}&commentNo=${comment.commentNo}">[삭제]</a> 
+				<a href="deleteComment.do?no=${comment.no}&comment_no=${comment.comment_no}">[삭제]</a> 
 				</div>
 				</c:if>
 				<hr>

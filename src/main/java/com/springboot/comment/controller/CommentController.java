@@ -23,31 +23,32 @@ public class CommentController {
 	@RequestMapping(value = "/insertComment.do")
 	public String insertComment(CommentVO vo) throws IOException {
 		CommentService.insertComment(vo);
-		return "getBoard.do?no="+vo.getNo();
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/updateComment.do")
 	public String updateBoard(@ModelAttribute("Comment") CommentVO vo) {
 		CommentService.updateComment(vo);
-		return "getBoard.jsp";
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/deleteComment.do")
 	public String deleteBoard(CommentVO vo) {
 		CommentService.deleteComment(vo);
-		return "getBoard.jsp";
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/getComment.do")
 	public String getBoard(CommentVO vo, Model model) {
 		model.addAttribute("Comment", CommentService.getComment(vo)); 
-		return "getBoard.jsp"; 
+		return "redirect:getBoard.do?no="+vo.getNo(); 
 	}
 
 	@RequestMapping(value ="/getCommentList.do")
 	public String getBoardList(CommentVO vo,Model model) {
+		model.addAttribute("count", CommentService.getCommentCount(vo));
 		List<CommentVO> commentList = CommentService.getCommentList(vo);
-		model.addAttribute("CommentList",commentList);
+		model.addAttribute("commentList",commentList);
 		return "getBoard.jsp";
 	}
 

@@ -22,13 +22,12 @@ public class CommentService{
 	public void updateComment(CommentVO vo) {
 		CommentVO comment = CommentRepository.findById(vo.getComment_no()).orElseThrow(() -> new IllegalAccessError("해당 게시글이 존재하지 않습니다."));
 		comment.setContent(vo.getContent());
-		comment.setRegdate(vo.getRegdate());
+		comment.setRegDate(vo.getRegDate());
 		CommentRepository.save(comment);
-		
 	}
 
 	public void deleteComment(CommentVO vo) {
-		CommentRepository.deleteById(vo.getNo());
+		CommentRepository.deleteById(vo.getComment_no());
 	}
 
 	public CommentVO getComment(CommentVO vo) {
@@ -36,8 +35,11 @@ public class CommentService{
 	}
 
 	public List<CommentVO> getCommentList(CommentVO vo){
-		List<CommentVO> commentList = CommentRepository.findAllById(vo.getNo());
+		List<CommentVO> commentList = CommentRepository.findByCommentList(vo.getNo());
 		return commentList;
 	}
 	
+	public int getCommentCount(CommentVO vo) {
+		return CommentRepository.countCommentList(vo.getNo());
+	}
 }
