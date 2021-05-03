@@ -3,5 +3,6 @@
 	<persistence-unit name="5thSpringBootJpaBoard">
 		<class>com.springboot.user.entity.UserVO</class>
 		<class>com.springboot.board.entity.BoardVO</class>
+		<class>com.springboot.comment.entity.CommentVO</class>
 	</persistence-unit>
 </persistence>
