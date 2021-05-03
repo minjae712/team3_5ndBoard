@@ -1,50 +1,52 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 상세</title>
 </head>
 <body>
 	<center>
-		<h1>글 상세</h1>
-		<a href="logout.do">Log-out</a>
+		<%@ include file="/menuBar.jsp" %>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		<hr>
-		<form action="updateBoard.do" method="post">
-			<input name="seq" type="hidden" value="${notice.uni}" />
-			<table border="1" cellpadding="0" cellspacing="0">
+		<div style="width: 70%">
+			<table class="table table-bordered" >
 				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input name="title" type="text"
-						value="${notice.title}" /></td>
+					<td colspan="1">제목</td>
+					<td colspan="5"><c:out value="${nvo.title}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">작성자</td>
-					<td align="left">${notice.writer}</td>
+					<td>게시글번호</td>
+					<td colspan="6"><c:out value="${nvo.no}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="content" cols="40" rows="10">${notice.content}</textarea></td>
+					<td colspan="1">작성자</td>
+					<td colspan="1"><c:out value="${nvo.writer}" /></td>
+					<td colspan="1">등록일</td>
+					<td colspan="1"><c:out value="${nvo.regDate}" /></td>
+					<td colspan="1">조회수</td>
+					<td colspan="1"><c:out value="${nvo.cnt}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">등록일</td>
-					<td align="left">${notice.regDate}</td>
+					<td colspan="6" height="400"><c:out value="${nvo.content}" />
+					</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">조회수</td>
-					<td align="left">${notice.cnt}</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit" value="글 수정" /></td>
 				</tr>
 			</table>
-		</form>
+			<hr>
+	</div>
 		<hr>
-		<a href="insertNotice.jsp">글등록</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteNotice.do?uni=${board.uni}">글삭제</a>&nbsp;&nbsp;&nbsp;
-		<a href="getNoticeList.do">글목록</a>
+		<c:if test="${user.isAdmin()}">
+		<a class="btn btn-default" href="insertNotice.jsp">공지등록</a>&nbsp;&nbsp;&nbsp; 
+		<a class="btn btn-default" href="deleteNotice.do?uni=${nvo.uni}">공지 삭제</a>&nbsp;&nbsp;&nbsp;
+		</c:if>
+		<a class="btn btn-default" href="getBoardList.do">글목록</a>
 	</center>
 </body>
 </html>

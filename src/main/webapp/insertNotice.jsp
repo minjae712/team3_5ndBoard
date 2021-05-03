@@ -5,8 +5,8 @@
 <head>
 <style>
 body {
-background-color: gray;
-}
+	background-color: gray;
+	}
 </style>
 <title>공지등록</title>
 </head>
@@ -17,7 +17,6 @@ background-color: gray;
 		<hr>
 		<form action="insertNotice.do" method="post">
 			<table border="1" cellpadding="0" cellspacing="0">
-				
 				<tr>
 					<td align="left"><input type="hidden" name="no" value="공지" /></td>
 				</tr>

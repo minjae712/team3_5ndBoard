@@ -36,7 +36,7 @@ public class NoticeController {
 	
 	@RequestMapping("/getNotice.do")
 	public String getNotice(NoticeVO vo, Model model){
-		model.addAttribute("notice", noticeService.getNotice(vo));
+		model.addAttribute("nvo", noticeService.getNotice(vo));
 		return "getNotice.jsp";
 	}
 	
