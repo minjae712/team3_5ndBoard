@@ -18,6 +18,7 @@ public class CommentVO {
 	
 	@Id
 	@GeneratedValue
+	private int comment_no;
 	private int no;
 	private String writer;
 	private String content;
