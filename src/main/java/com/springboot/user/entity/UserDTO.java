@@ -18,15 +18,5 @@ public class UserDTO {
 		this.name = name;
 		this.role = role;
 	}
-	
-	
-	public UserVO toEntity() {
-		return UserVO.builder()
-				.id(id)
-				.password(password)
-				.name(name)
-				.role(role)
-				.build();
-	}
 
 }

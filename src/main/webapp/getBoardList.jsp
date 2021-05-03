@@ -43,8 +43,8 @@ background-color: gray;
 			</tr>
 			<c:forEach items="${boardList}" var="board">
 			<tr>
-				<td>${board.seq}</td>
-				<td align="left"><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
+				<td>${board.no}</td>
+				<td align="left"><a href="getBoard.do?no=${board.no}">${board.title}</a></td>
 				<td>${board.writer}</td>
 				<td>${board.regDate}</td>
 			</tr>

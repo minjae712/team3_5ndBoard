@@ -23,7 +23,7 @@ public class BoardVO {
 
 	@Id
 	@GeneratedValue
-	private int seq;
+	private int no;
 	private String title;
 	private String writer;
 	private String content;
@@ -32,18 +32,4 @@ public class BoardVO {
 	private Date regDate = new Date();
 	private int cnt;
 
-	public BoardVO() {};
-	
-	@Builder
-	public BoardVO(int seq, String title, String writer, String content, Date regDate, int cnt) {
-		this.seq = seq;
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.regDate = regDate;
-		this.cnt = cnt;
-	}
-	
-	
-	
 }
