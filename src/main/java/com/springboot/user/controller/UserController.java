@@ -1,5 +1,8 @@
 package com.springboot.user.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +19,7 @@ public class UserController {
 	
 	@Autowired	
 	private UserService userservice;
+	Map<String, Boolean> errors = new HashMap<String, Boolean>();
 	
 	@RequestMapping(value={"", "/main.do"})
 	public String Main(HttpServletRequest request, HttpSession session, Model model) throws Exception{
@@ -71,4 +75,30 @@ public class UserController {
 		return "index.jsp";
 	}
 	
+	@RequestMapping("/find_id.do")
+	public String find_id(UserVO vo, Model model)  {
+		UserVO find_id = userservice.find_id(vo);
+		
+		if(find_id == null) {
+			model.addAttribute("check",1);
+		}else {
+			model.addAttribute("check",0);
+			model.addAttribute("find_id", find_id.getId());
+		}
+		return "find_id.jsp";
+	}
+	
+	
+	@RequestMapping("/findPassword.do")
+	public String findPassword(UserVO vo, Model model) {
+			UserVO find_pw = userservice.find_password(vo);
+			if(vo.getEmail().equals(find_pw.getEmail()) && vo.getId().equals(find_pw.getId())) {
+				model.addAttribute("find",find_pw);
+				return "findSuccess.jsp";
+			}else {
+				errors.put("email", Boolean.TRUE);
+				model.addAttribute("error",errors);
+				return "findPassword.jsp";
+			}
+	}
 }

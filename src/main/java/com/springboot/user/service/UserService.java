@@ -46,5 +46,13 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
+	public UserVO find_id(UserVO vo) {
+		return userRepository.findByEmail(vo.getEmail());
+	}
+	
+	public UserVO find_password(UserVO vo) {
+		return userRepository.findByEmailAndId(vo.getEmail(), vo.getId());
+		
+	}
 	
 }
