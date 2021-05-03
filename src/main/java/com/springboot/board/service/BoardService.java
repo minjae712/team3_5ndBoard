@@ -2,6 +2,7 @@ package com.springboot.board.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.springboot.board.entity.BoardVO;
@@ -37,8 +38,7 @@ public class BoardService {
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		List<BoardVO> boardList = boardRepository.findAll();
+		List<BoardVO> boardList = boardRepository.findAll(Sort.by(Sort.Direction.DESC, "no"));
 		return boardList;
 	}
-	
 }	
