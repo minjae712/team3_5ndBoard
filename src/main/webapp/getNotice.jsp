@@ -42,10 +42,8 @@
 			<hr>
 	</div>
 		<hr>
-		<c:if test="${user.isAdmin()}">
 		<a class="btn btn-default" href="insertNotice.jsp">공지등록</a>&nbsp;&nbsp;&nbsp; 
 		<a class="btn btn-default" href="deleteNotice.do?uni=${nvo.uni}">공지 삭제</a>&nbsp;&nbsp;&nbsp;
-		</c:if>
 		<a class="btn btn-default" href="getBoardList.do">글목록</a>
 	</center>
 </body>

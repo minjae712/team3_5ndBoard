@@ -17,7 +17,7 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("/updateNotice.do")
-	public String updateNotice(NoticeVO vo) {		
+	public String updateNotice(@ModelAttribute("nvo") NoticeVO vo) {		
 		noticeService.updateNotice(vo);
 		return "getNoticeList.do";
 	}
