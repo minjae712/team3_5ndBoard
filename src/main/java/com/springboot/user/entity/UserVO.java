@@ -19,6 +19,8 @@ public class UserVO {
 	private String id;
 	private String password;
 	private String name;
+	private String birth2;
+	private String phone;
 	private String role;
 	private String email;
 	private String image;

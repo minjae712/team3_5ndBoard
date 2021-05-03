@@ -34,6 +34,14 @@
 					<td bgcolor="orange">이름</td>
 					<td align="left"><input type="text" name="name"/></td>
 				</tr>
+				<tr>
+					<td bgcolor="orange">생년월일</td>
+					<td align="left"><input type="text" name="birth2"/></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">전화번호</td>
+					<td align="left"><input type="text" name="phone"/></td>
+				</tr>
 
 				<tr>
 					<td bgcolor="orange">우편번호</td>
